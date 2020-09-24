@@ -40,7 +40,7 @@ public class Matriser {
 	// c)
 	public static int[][] skaler(int tall, int[][] matrise) {
 		if(matrise.length == 0) {
-			return matrise;
+			return null;
 		}
 		
 		int[][] skalert = new int[matrise.length][matrise[0].length];
@@ -74,7 +74,7 @@ public class Matriser {
 	// e)
 	public static int[][] speile(int[][] matrise) {
 		if(matrise.length == 0) {
-			return matrise;
+			return null;
 		}
 		
 		int[][] speilet = new int[matrise.length][matrise[0].length];
@@ -91,7 +91,7 @@ public class Matriser {
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
 		if(a.length == 0 || b.length == 0) {
-			return new int[0][0];
+			return null;
 		}
 		
 		int[][] multiplisert = new int[a.length][a[0].length];

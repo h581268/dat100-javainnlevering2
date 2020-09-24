@@ -92,7 +92,7 @@ public class Tabeller {
 	// f)
 	public static int[] reverser(int[] tabell) {
 		if (tabell.length == 0) {
-			return tabell;
+			return null;
 		}
 
 		int[] reversertTabell = new int[tabell.length];
@@ -124,7 +124,7 @@ public class Tabeller {
 		} else if(tabell2.length == 0) {
 			return tabell1; 
 		} else if (tabell1.length == 0 && tabell2.length == 0) {
-			return new int[0];
+			return null;
 		}
 		int[] sammensatt = new int[tabell1.length + tabell2.length];
 		
