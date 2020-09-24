@@ -16,9 +16,7 @@ public class Tabeller {
 	}
 
 	// b)
-	public static String tilStreng(int[] tabell) {
-		// Ville brukt return Arrays.toString(tabell); men assert forventet en annen streng formatering, så da blir det slik:
-	  
+	public static String tilStreng(int[] tabell) {	  
 		if (tabell.length == 0) { 
 			return "[]"; 
 		}
@@ -36,6 +34,9 @@ public class Tabeller {
 	
 	// c)
 	public static int summer(int[] tabell) {
+		if (tabell.length == 0) {
+			return 0;
+		}
 		
 		int sum = 0;
 		
@@ -60,13 +61,26 @@ public class Tabeller {
 
 	// d)
 	public static boolean finnesTall(int[] tabell, int tall) {
-		return Arrays.binarySearch(tabell, tall) >= 0;
+		if(tabell.length == 0) {
+			return false;
+		}
+		// return Arrays.binarySearch(tabell, tall) >= 0;
+		
+		for (int finnes : tabell) {
+			if (finnes == tall) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	// e)
 	public static int posisjonTall(int[] tabell, int tall) {
-		// Søk igjennom tabellen etter tall, dersom den finner tallet returner index, 
-		// dersom den ikke finner tallet, returner -1 siden det ikke kan være en index i tabellen.
+		if (tabell.length == 0) {
+			return -1;
+		}
+
+		// Søker linjært siden det ikke er spesifisert om tabellen er sortert eller ikke.
 		for(int i = 0; i < tabell.length; i++) {
 			if (tabell[i] == tall) {
 				return i;
@@ -77,11 +91,10 @@ public class Tabeller {
 
 	// f)
 	public static int[] reverser(int[] tabell) {
-		// Sjekker først om tabellen er lengre enn 0, ellers er det ingen vits å fortsette.
 		if (tabell.length == 0) {
 			return tabell;
 		}
-		// Lager en ny tabell for å lagre den reverserte tabellen.
+
 		int[] reversertTabell = new int[tabell.length];
 		for(int i = 0, j = tabell.length - 1; i < tabell.length; i++, j--) {
 			reversertTabell[i] = tabell[j];
@@ -90,11 +103,11 @@ public class Tabeller {
 	}
 
 	// g)
-	public static boolean erSortert(int[] tabell) {
-		// Tar utgangspunkt i at sortert vil si at den skal gå fra min til max slik Arrays.sort() gjør.
-		
-		// Sjekker om hvert element i tabellen ikke er mindre enn det forrige. 
-		// Dersom et element er mindre enn det forrige, er ikke tabellen sortert.
+	public static boolean erSortert(int[] tabell) {		
+		if (tabell.length == 0) {
+			return true;
+		}
+
 		for(int i = 0; i < tabell.length - 1; i++) {
 			if(tabell[i] > tabell[i+1]) {
 				return false;
@@ -110,10 +123,12 @@ public class Tabeller {
 			return tabell2; 
 		} else if(tabell2.length == 0) {
 			return tabell1; 
-		} 
+		} else if (tabell1.length == 0 && tabell2.length == 0) {
+			return new int[0];
+		}
 		int[] sammensatt = new int[tabell1.length + tabell2.length];
 		
-		// Med Arrays.arraycopy()
+		// Med .arraycopy()
 		/*
 		 * System.arraycopy(tabell1, 0, sammensatt, 0, tabell1.length);
 		 * System.arraycopy(tabell2, 0, sammensatt, tabell1.length, tabell2.length);

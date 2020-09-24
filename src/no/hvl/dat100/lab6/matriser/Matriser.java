@@ -32,6 +32,7 @@ public class Matriser {
 			}
 			matriseSomStreng += "\n";
 		}
+		
 		return matriseSomStreng;
 		
 	}
@@ -43,11 +44,13 @@ public class Matriser {
 		}
 		
 		int[][] skalert = new int[matrise.length][matrise[0].length];
+		
 		for (int i = 0; i < matrise.length; i++) {
 			for(int j = 0; j < matrise[i].length; j++) {
 				skalert[i][j] = matrise[i][j] * tall;
 			}
 		}
+		
 		return skalert;
 	}
 
@@ -64,6 +67,7 @@ public class Matriser {
 				}
 			}
 		}
+		
 		return true;
 	}
 	
