@@ -23,10 +23,10 @@ public class Tabeller {
 		  
 		String tabellTilStreng = "["; 
 		for(int i = 0; i < tabell.length; i++) { 
-			if(i != tabell.length - 1) {
+			if(i < tabell.length - 1) {
 				tabellTilStreng += tabell[i] + ",";
 			} else { 
-			tabellTilStreng += tabell[i] + "]";
+				tabellTilStreng += tabell[i] + "]";
 			} 
 		}
 		return tabellTilStreng;
@@ -92,7 +92,7 @@ public class Tabeller {
 	// f)
 	public static int[] reverser(int[] tabell) {
 		if (tabell.length == 0) {
-			return null;
+			return tabell;
 		}
 
 		int[] reversertTabell = new int[tabell.length];
